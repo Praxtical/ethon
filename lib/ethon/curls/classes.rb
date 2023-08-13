@@ -40,7 +40,7 @@ module Ethon
 
           # auto-detect ulimit, but cap at 2^16
           else
-            [::Ethon::Libc.getdtablesize, 65_536].min
+            [::Ethon::Libc.sysconf(:open_max), 65_536].min
           end
         end
 
